@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Login</h2>
+<form action="/Usuario/Autentica" method="post">
+
+    <label for="login">Login:</label>
+    <input name="login" id="login" class="form-control" />
+
+    <label for="senha">Senha:</label>
+    <input name="senha" id="senha" class="form-control" type="password" />
+
+    <input onclick="logar()" type="submit" value="Logar" class="btn btn-default" />
+</form>
+@Html.ActionLink("Cadastrar Usuario", "Form", "Usuario", new { area = "" }, new { @class = "btn btn-default" })
+

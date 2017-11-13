@@ -1,0 +1,76 @@
+﻿
+@model IList<WebApplication1.Models.Restaurante>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/filtrar-tabela.js"></script>
+<h2>Todos os Restaurantes</h2>
+
+
+@Html.ActionLink("Cadastrar Restaurante", "Form", "Restaurante", new { area = "" }, new { @class = "btn btn-default" })
+<br />
+<label for="filtrar-tabela">Filtre:</label>
+<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome do restaurante">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Controle</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Uf/Cidade</th>
+            <th>Bairro/Rua/Numero</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var restaurante in Model)
+        {
+                <tr id="linha@(restaurante.RestauranteId)" class="linha">
+                    <td>
+                    @if (restaurante.UsuarioId == ViewBag.Usuario.UsuarioId)
+                    {
+                        <div class="box left">
+                            @*Remover Restaurante*@
+                            <input onclick="remover(@restaurante.RestauranteId,'@Url.Action("Remover","Restaurante")')" class="btn btn-danger" type="button"
+                                   value="Remover" />
+                        </div>
+                        <div class="box left">
+                            @*Pegar Produtos*@
+                            @using (Html.BeginForm("PegarProdutos", "Restaurante", new { restauranteId = restaurante.RestauranteId }))
+                            {
+                                <input type="submit" value="Produtos" class="btn btn-default esquerda" />
+                            }
+                        </div>
+                        <div class="box left">
+                            @*Modificar Produto*@
+                            @Html.ActionLink("Editar", "Modificar", new { restauranteId = restaurante.RestauranteId, telefoneId = restaurante.TelefoneId, enderecoId = restaurante.EnderecoId }, new { @class = "btn btn-default" })
+                        </div>
+                    }
+                    else {
+                        <input id="botaoFavoritar@(restaurante.RestauranteId)" onclick="favoritar(@restaurante.RestauranteId,'@Url.Action("Favoritar","Restaurante")')" class="btn" type="button"
+                               value="Favoritar" />
+                    }
+
+                    </td>
+                    <td class="info-nome">@restaurante.Nome</td>
+                    @foreach (var item in ViewBag.Telefones)
+                    {
+                        if (restaurante.TelefoneId == item.TelefoneId)
+                        {
+                            <td>@item.Numero</td>
+                        }
+                    }
+
+                    @foreach (var item in ViewBag.Enderecos)
+                    {
+                        if (restaurante.EnderecoId == item.EnderecoId)
+                        {
+                            <td>@item.Uf / @item.Cidade</td>
+                            <td>@item.Bairro / @item.Rua / @item.Numero</td>
+                        }
+                    }
+                </tr>
+            
+        }
+
+
+
+    </tbody>
+</table>

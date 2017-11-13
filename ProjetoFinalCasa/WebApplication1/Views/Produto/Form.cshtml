@@ -1,0 +1,18 @@
+﻿<h1>Cadastro Produto</h1>
+
+<form action="/Produto/Adiciona" method="post">
+    @Html.AntiForgeryToken()
+    <p>
+        <label for="nome">Nome:</label>
+        <input required id="nome" name="produto.Nome"  value="@ViewBag.Produto.Nome" title="Campo Não Pode Ser Vazio" />
+    </p>
+    <p>
+        <label for="preco">Preco:</label>
+        <input required id="preco" name="produto.Preco" value="@ViewBag.Produto.Preco" maxlength="15" pattern="[0-9]*,[0-9]*" title="Só podem ser inseridos numeros em preço"/>
+    </p>
+    <p>
+    <input type="submit" value="Cadastrar" />
+    </p>
+</form>
+
+

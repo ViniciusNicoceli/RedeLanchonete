@@ -1,0 +1,54 @@
+﻿
+@model IList<WebApplication1.Models.Produto>
+<script src="~/Scripts/filtrar-tabela.js"></script>
+
+
+
+<h2>@ViewBag.Restaurante.Nome</h2>
+@if(ViewBag.Restaurante.UsuarioId == ViewBag.Usuario.UsuarioId)
+{
+    @Html.ActionLink("Cadastrar Produto", "Form", "Produto", new { area = "" }, new { @class = "btn btn-default" })
+}
+<br />
+<label for="filtrar-tabela">Filtre:</label>
+<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome do produto">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Controle</th>
+            <th>Codigo</th>
+            <th>Nome</th>
+            <th>Preco</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model){
+            if (produto.RestauranteId == ViewBag.Restaurante.RestauranteId){
+                    <tr id="linha@(produto.ProdutoId)" class="linha">
+                        <td>
+                        @if(ViewBag.Restaurante.UsuarioId == ViewBag.Usuario.UsuarioId)
+                        {
+                            <div class="box left">
+                            @*Remover Produto*@
+                            
+                            <input onclick="remover(@produto.ProdutoId,'@Url.Action("Remover","Produto")')" class="btn btn-danger" type="button"
+                                    value="Remover" />
+                            
+                            </div>
+                            <div class="box left">
+                            @*Modificar Produto*@
+                            @Html.ActionLink("Editar", "Modificar", new { produtoId = produto.ProdutoId }, new { @class = "btn btn-default" })
+                            </div>
+                        }
+                    </td>
+                        <td>@produto.ProdutoId</td>
+                        <td class="info-nome" id="nome@(produto.ProdutoId)">@produto.Nome</td>
+                        <td id="preco@(produto.ProdutoId)">@produto.Preco</td>
+                    </tr>
+                }
+        }
+
+            
+        
+    </tbody>
+</table>

@@ -1,0 +1,87 @@
+﻿@model WebApplication1.Models.Restaurante
+
+@{
+    ViewBag.Title = "Modificar";
+}
+
+<h2>Editar Restaurante</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Restaurante</legend>
+
+        @Html.HiddenFor(model => model.RestauranteId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nome)
+            @Html.ValidationMessageFor(model => model.Nome)
+        </div>
+
+        <div class="editor-label">
+            <strong>
+                @Html.LabelFor(model => model.Telefone.Numero) De Telefone
+            </strong>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefone.Numero)
+            @Html.ValidationMessageFor(model => model.Telefone.Numero)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Endereco.Uf)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Endereco.Uf)
+            @Html.ValidationMessageFor(model => model.Endereco.Uf)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Endereco.Cidade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Endereco.Cidade)
+            @Html.ValidationMessageFor(model => model.Endereco.Cidade)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Endereco.Bairro)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Endereco.Bairro)
+            @Html.ValidationMessageFor(model => model.Endereco.Bairro)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Endereco.Rua)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Endereco.Rua)
+            @Html.ValidationMessageFor(model => model.Endereco.Rua)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Endereco.Numero)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Endereco.Numero)
+            @Html.ValidationMessageFor(model => model.Endereco.Numero)
+        </div>
+
+
+        <p>
+            <input type="submit" value="Salvar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
