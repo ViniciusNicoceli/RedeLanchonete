@@ -44,12 +44,17 @@
                         </div>
                     }
                     else {
+                        <div class="box left">
                         <input id="botaoFavoritar@(restaurante.RestauranteId)" onclick="favoritar(@restaurante.RestauranteId,'@Url.Action("Favoritar","Restaurante")')" class="btn" type="button"
                                value="Favoritar" />
+                        </div>
+                        <div class="box left">
+                           @Html.ActionLink("Sugestao", "Form", "Sugestoes", new {RestauranteId = restaurante.RestauranteId}, new { @class = "btn btn-default" })
+                        </div>
                     }
 
                     </td>
-                    <td class="info-nome">@restaurante.Nome</td>
+                    <td class="info-nome"><a href="@Url.Action("PegarProdutos","Restaurante", new { restauranteId = restaurante.RestauranteId })">@restaurante.Nome</a></td>
                     @foreach (var item in ViewBag.Telefones)
                     {
                         if (restaurante.TelefoneId == item.TelefoneId)

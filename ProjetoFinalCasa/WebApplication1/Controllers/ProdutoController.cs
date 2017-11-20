@@ -46,7 +46,6 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("Index");
         }
-
         public ActionResult Modificar(int produtoId)
         {
             ProdutosRepository dao = new ProdutosRepository();

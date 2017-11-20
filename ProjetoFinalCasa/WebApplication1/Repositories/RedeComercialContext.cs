@@ -20,6 +20,8 @@ namespace WebApplication1.DAO
 
         public DbSet<Favorito> Favoritos { get; set; }
 
+        public DbSet<Sugestoes> Sugestoes { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -26,10 +26,12 @@
                 </li>
                 <li>
                     <div class="dropdown">
-                        <a>@Html.ActionLink("Login", "Index", "Usuario", new { area = "" }, new { @class = "navbar-brand dropbtn right login" })</a>
+                        <a>@Html.ActionLink("Usuario", "Index", "Usuario", new { area = "" }, new { @class = "navbar-brand dropbtn right login" })</a>
                     <div class="login dropdown-content">
                         @Html.ActionLink("Perfil", "Perfil", "Usuario")
                         @Html.ActionLink("Procurar Usuario", "Procurar", "Usuario")
+                        @Html.ActionLink("Sugestoes", "Sugestoes", "Usuario")
+                        @Html.ActionLink("Logout", "Logout", "Usuario")
                     </div>
                     </div>
                 </li>

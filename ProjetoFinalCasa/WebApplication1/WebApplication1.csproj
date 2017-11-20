@@ -135,6 +135,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\ViniciusNicoceli.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\controlesAjax.js" />
     <Content Include="Scripts\mascaraInputs.js" />
@@ -152,6 +153,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\RestauranteController.cs" />
+    <Compile Include="Controllers\SugestoesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Migrations\201711091257241_att2.cs" />
     <Compile Include="Migrations\201711091257241_att2.Designer.cs">
@@ -162,6 +164,7 @@
       <DependentUpon>201711091259491_att3.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Favorito.cs" />
+    <Compile Include="Models\Sugestoes.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\EnderecoRepository.cs" />
     <Compile Include="Repositories\IRespository.cs" />
@@ -169,6 +172,7 @@
     <Compile Include="Repositories\ProdutosRepository.cs" />
     <Compile Include="Repositories\RedeComercialContext.cs" />
     <Compile Include="Repositories\RestauranteRepository.cs" />
+    <Compile Include="Repositories\SugestoesRepository.cs" />
     <Compile Include="Repositories\TelefoneRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
@@ -194,7 +198,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\UsuarioMestre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +223,8 @@
     <Content Include="Views\Restaurante\Global.cshtml" />
     <Content Include="Views\Usuario\Perfil.cshtml" />
     <Content Include="Views\Usuario\Procurar.cshtml" />
+    <Content Include="Views\Sugestoes\Form.cshtml" />
+    <Content Include="Views\Usuario\Sugestoes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Filtros;
+using WebApplication1.Repositories;
 
 namespace WebApplication1.Controllers
 {
@@ -17,6 +18,7 @@ namespace WebApplication1.Controllers
         TelefoneRepository trep = new TelefoneRepository();
         EnderecoRepository erep = new EnderecoRepository();
         FavoritoRepository frep = new FavoritoRepository();
+        SugestoesRepository srep = new SugestoesRepository();
         public ActionResult Index()
         {
             return View();
@@ -100,12 +102,28 @@ namespace WebApplication1.Controllers
             }
             
         }
+        [AutorizacaoFilter]
+        public ActionResult Sugestoes()
+        {
+            var Usuario = (Usuario)Session["usuarioLogado"];
+            var restaurantes = rrep.Lista().Where(r => r.UsuarioId == Usuario.UsuarioId).ToList();
 
+            var sugestoes = srep.Lista();
+            ViewBag.Sugestoes = sugestoes;
+            return View(restaurantes);
+        }
+        [AutorizacaoFilter]
         public ActionResult Procurar()
         {
             UsuarioRepository rep = new UsuarioRepository();
             var usuarios = rep.Lista();
             return View(usuarios);
+        }
+        [AutorizacaoFilter]
+        public ActionResult Logout()
+        {
+            Session["usuarioLogado"] = null;
+            return RedirectToAction("Index");
         }
     }
 }

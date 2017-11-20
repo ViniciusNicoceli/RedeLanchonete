@@ -17,6 +17,7 @@ namespace WebApplication1.Models
 
         [ForeignKey("Restaurante")]
         public int RestauranteId { get; set; }
+        
 
 
         public virtual Usuario Usuario { get; set; }

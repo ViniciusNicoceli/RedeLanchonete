@@ -5,6 +5,7 @@
             url: url,
             data: { id : id}
         });
+        console.log("eoq");
         $("#linha"+id).hide().remove();
     }
 }

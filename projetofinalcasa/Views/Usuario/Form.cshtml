@@ -1,0 +1,51 @@
+﻿@model WebApplication1.Models.Usuario
+
+<h2>Registrar Usuario</h2>
+<form action="/Usuario/Adiciona" method="post">
+    @Html.AntiForgeryToken()
+    <asp:TextBox ID="txtUsuario" runat="server" Text="" /> <div id="aviso" style="display:none"></div>
+    <p class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text"
+               required id="nome" name="usuario.Nome" value="@Model.Nome"  class="form-control" title="Nome não pode ser vazio" />
+    </p>
+
+    <p class="form-group">
+    <label for="senha">Senha:</label>
+    <input required type="password" id="senha" name="usuario.Senha" value="@Model.Senha" class="form-control" pattern="[0-9a-zA-Z]+" title="Senha Possui Somente letras e numeros"/>
+    </p>
+
+    <p class="form-group">
+        <label for="numero">Telefone:</label>
+        <input required id="numeroTelefone" name="usuario.Telefone.Numero" value="@Model.Telefone.Numero" class="form-control" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" title="Telefones tem 11 numeros"/> 
+    </p>
+
+    <p class="form-group">
+
+        <label for="uf">Uf:</label>
+        <input required id="uf" name="usuario.Endereco.Uf" value="@Model.Endereco.Uf" class="form-control" title="Campo Não Pode Ser Vazio"/>
+
+        <label class="form-group" for="cidade">Cidade:</label>
+        <input required id="cidade" name="usuario.Endereco.Cidade" value="@Model.Endereco.Cidade" class="form-control" title="Campo Não Pode Ser Vazio"/>
+
+    </p>
+
+    <p class="form-group">
+        <label for="bairro">Bairro:</label>
+        <input required id="bairro" name="usuario.Endereco.Bairro" value="@Model.Endereco.Bairro" class="form-control" title="Campo Não Pode Ser Vazio"/>
+
+        <label for="rua">Rua:</label>
+        <input required id="rua" name="usuario.Endereco.Rua" value="@Model.Endereco.Rua" class="form-control" title="Campo Não Pode Ser Vazio"/>
+
+        <label for="numero">Numero:</label>
+        <input required id="numero" name="usuario.Endereco.Numero" value="@Model.Endereco.Numero" class="form-control" pattern="[0-9]+" title="Numero da Casa somente possui numeros"/>
+    </p>
+
+    <input type="submit" value="Cadastrar" class="btn btn-default" />
+
+
+    <script src="~/Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.mask.js" type="text/javascript"></script>
+    <script src="~/Scripts/mascaraInputs.js" type="text/javascript"></script>
+</form>
+
