@@ -1,0 +1,13 @@
+﻿@model List<WebApplication1.Models.Usuario>
+<h2>Procurar</h2>
+
+<input type="text" id="procurarUser" onkeyup="procurarUsuario()" placeholder="Digite o nome do usuario">
+
+<ul id="tabela">
+    @foreach(var usuarios in Model)
+    {
+        <li>
+            @Html.ActionLink(usuarios.Nome, "Perfil", new { id = usuarios.UsuarioId}, new { @class = "btn btn-default" })
+        </li>
+    }
+</ul>

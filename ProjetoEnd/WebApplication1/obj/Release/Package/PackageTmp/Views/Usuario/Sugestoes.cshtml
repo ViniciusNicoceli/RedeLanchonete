@@ -1,0 +1,21 @@
+﻿@model List<WebApplication1.Models.Restaurante>
+<h2>Sugestoes</h2>
+<p>Clique duas vezes na linha para deletar a sugestão</p>
+<ul id="tabela">
+    @foreach (var restaurante in Model)
+    {
+        foreach(var sugestao in ViewBag.Sugestoes)
+        {
+            if(restaurante.RestauranteId == sugestao.RestauranteId)
+            {
+            <li id="linha@(sugestao.SugestoesId)">
+                <a ondblclick="remover(@sugestao.SugestoesId,'@Url.Action("Remover","Sugestoes")')">O Restaurante @restaurante.Nome Foi Sugerido a "@sugestao.Sugestao" </a>
+            </li>
+            }
+        }
+    }
+</ul>
+
+
+    <script type="text/javascript"></script>
+

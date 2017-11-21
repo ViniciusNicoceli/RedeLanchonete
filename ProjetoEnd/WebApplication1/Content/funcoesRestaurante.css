@@ -1,0 +1,16 @@
+﻿.invisivel {
+	display: none;
+}
+
+
+.box{
+ display: block;
+}
+
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}

@@ -1,0 +1,55 @@
+﻿@model WebApplication1.Models.Usuario
+
+<link href="~/Content/img.css" rel="stylesheet" type="text/css" />
+
+<h2>Perfil de @Model.Nome</h2>
+<body style="">
+
+    <div class="container">
+        <div class="row profile">
+            <div class="col-md-3">
+                <div class="profile-sidebar">
+                    <!-- Foto -->
+                    <div class="profile-userpic">
+                        <img src="http://tds.cl/img/perfil-usuario.png" class="img-responsive" alt="">
+                    </div>
+                    <!-- Mensagem -->
+                    <div class="profile-userbuttons">
+                        <button type="button" class="btn btn-success btn-sm">Mensagem</button>
+                    </div>
+                    <!-- Botoes Controle de perfil-->
+                    <div class="profile-usermenu">
+                        <ul class="nav">
+                            <li class="active">
+                                <a>Telefone: @ViewBag.Telefone.Numero</a>
+                            </li>
+                            <li>
+                                <a>Endereco: @ViewBag.Endereco.Uf / @ViewBag.Endereco.Cidade / @ViewBag.Endereco.Bairro / @ViewBag.Endereco.Rua / @ViewBag.Endereco.Numero</a>
+                            </li>
+                        </ul>
+                        <h2>Restaurantes Favoritos</h2>
+
+                        <input type="text" id="procurarUser" onkeyup="procurarUsuario()" placeholder="Digite o nome do restaurante">
+
+                        <ul id="tabela">
+                            @foreach (var restaurantes in ViewBag.Favoritos)
+                            {
+                                <li>
+                                    <a href="@Url.Action("PegarProdutos","Restaurante", new { restauranteId = restaurantes.RestauranteId })">@restaurantes.Nome</a>
+                                </li>
+                            }
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="profile-content">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript"></script>
+
+
+</body>

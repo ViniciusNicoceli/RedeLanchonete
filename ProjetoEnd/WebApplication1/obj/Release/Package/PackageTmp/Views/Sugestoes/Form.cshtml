@@ -1,0 +1,12 @@
+﻿@model WebApplication1.Models.Sugestoes
+<h2>Sugestao</h2>
+
+<form action="/Sugestoes/Adiciona" method="post">
+    @Html.AntiForgeryToken()
+
+    <p class="form-group">
+        <label for="Sugestao">Mensagem</label>
+        <input required id="sugestao" name="sugestoes.sugestao" value="@Model.Sugestao" class="form-control" type="text" title="Nome não pode ser vazio" />
+    </p>
+    <input type="submit" value="Mandar Sugestao"/>
+</form>

@@ -1,0 +1,47 @@
+﻿@model WebApplication1.Models.Restaurante
+<h2>Cadastro De Restaurantes</h2>
+
+<form action="/Restaurante/Adiciona" method="post">
+    @Html.AntiForgeryToken()
+    <p class="form-group">
+        <label for="nome">Nome:</label>
+        <input required id="nome" name="restaurante.Nome" value="@Model.Nome" class="form-control" type="text" title="Nome não pode ser vazio" />
+    </p>
+
+    <p class="form-group">
+        <label for="numero">Telefone:</label>
+        <input required id="numeroTelefone" name="Restaurante.Telefone.Numero" value="@Model.Telefone.Numero" class="form-control" pattern="\([0-9]{2}\) [0-9]{4}-[0-9]{4,5}$" title="Telefones tem 11 numeros"  />
+    </p>
+
+    <p class="form-group">
+
+        <label for="uf">Uf:</label>
+        <input required id="uf" name="Restaurante.Endereco.Uf" value="@Model.Endereco.Uf" class="form-control" title="Campo Não Pode Ser Vazio" />
+
+        <label for="cidade">Cidade:</label>
+        <input required id="cidade" name="Restaurante.Endereco.Cidade" value="@Model.Endereco.Cidade" class="form-control" title="Campo Não Pode Ser Vazio" />
+    
+    </p>
+
+    <p class="form-group">
+        <label for="bairro">Bairro:</label>
+        <input required id="bairro" name="Restaurante.Endereco.Bairro" value="@Model.Endereco.Bairro" class="form-control" title="Campo Não Pode Ser Vazio" />
+
+        <label for="rua">Rua:</label>
+        <input required id="rua" name="Restaurante.Endereco.Rua" value="@Model.Endereco.Rua" class="form-control" title="Campo Não Pode Ser Vazio" />
+    
+        <label for="numero">Numero:</label>
+        <input required id="numero" name="Restaurante.Endereco.Numero" value="@Model.Endereco.Numero" class="form-control" pattern="[0-9]+" title="Numero da Casa somente possui numeros"/>
+    </p>
+
+    <input type="submit" value="Cadastrar" class="btn btn-default"/>
+
+
+    <script src="~/Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.mask.js" type="text/javascript"></script>
+    <script src="~/Scripts/mascaraInputs.js" type="text/javascript"></script>
+
+
+
+</form>
+
